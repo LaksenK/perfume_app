@@ -10,11 +10,11 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-  final Cart cart = Cart(); // ✅ Use the shared cart instance
+  final Cart cart = Cart(); 
 
   @override
   Widget build(BuildContext context) {
-    List perfumes = cart.getPerfumeList(); // ✅ Use correct method
+    List perfumes = cart.getPerfumeList(); 
 
     return Scaffold(
      
@@ -27,7 +27,7 @@ class _ProductsState extends State<Products> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Search Bar
+            
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -47,31 +47,33 @@ class _ProductsState extends State<Products> {
             ),
             const SizedBox(height: 20),
 
-            // Title
+          
             Center(
-              child: const Text(
-                "All Products",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  
-                ),
-              ),
+              child: Text(
+  "All Products",
+  style: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black, 
+  ),
+),
             ),
             const SizedBox(height: 20),
 
-            // Product Grid
+           
             Expanded(
               child: GridView.builder(
                 itemCount: perfumes.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // 2 products per row
+                  crossAxisCount: 2, 
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
-                  childAspectRatio: 0.7, // Adjust for card proportions
+                  childAspectRatio: 0.7, 
                 ),
                 itemBuilder: (context, index) {
-                  return Perfumetile(perfume: perfumes[index], cart: cart); // ✅ Now it works!
+                  return Perfumetile(perfume: perfumes[index], cart: cart); 
                 },
               ),
             ),

@@ -37,7 +37,7 @@ void greetUser(){
             labelText: "Enter your name",
           ),
         ),
-        SizedBox(height: 15), // Padding between fields
+        SizedBox(height: 15), 
         TextField(
           controller: mycontroller,
           decoration: InputDecoration(
@@ -45,14 +45,16 @@ void greetUser(){
             labelText: "Enter your password",
           ),
         ),
-        SizedBox(height: 20), // Padding before login button
+        SizedBox(height: 20), 
         ElevatedButton(
           onPressed: greetUser,
           child: Text("Login"),
         ),
-        SizedBox(height: 15), // Padding before the new text
-        Text("Don't have an account?"),
-        SizedBox(height: 8), // Padding before the signup button
+        SizedBox(height: 15), 
+        Text("Don't have an account?",style: TextStyle( color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,),),
+        SizedBox(height: 8), 
         TextButton(
           onPressed: () {
             Navigator.push(

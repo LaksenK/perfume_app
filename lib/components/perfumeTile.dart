@@ -4,9 +4,9 @@ import 'package:perfume_app/models/perfumeModel.dart';
 
 class Perfumetile extends StatelessWidget {
   final Perfume perfume;
-  final Cart cart; // ✅ Add this line
+  final Cart cart; 
 
-  const Perfumetile({super.key, required this.perfume, required this.cart}); // ✅ Add cart to constructor
+  const Perfumetile({super.key, required this.perfume, required this.cart}); 
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +19,30 @@ class Perfumetile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Perfume Image
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              perfume.imageUrl,
-              width: double.infinity,
-              height: 130,
-              fit: BoxFit.cover,
-            ),
-          ),
+          
+          GestureDetector(
+  onTap: () {
+    Navigator.pushNamed(
+      context,
+      '/productDetails', 
+      arguments: perfume, 
+    );
+  },
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(12),
+    child: Image.network(
+      perfume.imageUrl,
+      width: double.infinity,
+      height: 130,
+      fit: BoxFit.cover,
+    ),
+  ),
+),
+
+
           const SizedBox(height: 10),
 
-          // Perfume Name and Description
+          
           Text(
             perfume.name,
             style: const TextStyle(
@@ -51,7 +62,7 @@ class Perfumetile extends StatelessWidget {
           ),
           const Spacer(),
 
-          // Price and Add-to-Cart Button
+      
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -66,7 +77,7 @@ class Perfumetile extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.add_shopping_cart, color: Colors.blue),
                 onPressed: () {
-                  cart.addToCart(perfume); // ✅ Use shared cart instance
+                  cart.addToCart(perfume); 
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text("${perfume.name} added to cart!")),
                   );

@@ -1,12 +1,12 @@
 import 'perfume.dart';
 
 class Cart {
-  // Singleton pattern: only one instance of Cart exists
+  
   static final Cart _instance = Cart._internal();
   factory Cart() => _instance;
   Cart._internal();
 
-  // List of all perfumes
+  
   final List<Perfume> allPerfumes = [
     Perfume(
       name: "Most Wanted",
@@ -27,31 +27,31 @@ class Cart {
       price: 100.00,
     ),
     Perfume(
-      name: "Versace Eros",
-      imageUrl: "https://luxuryperfume.com/cdn/shop/products/11230B_1024x1024.jpg?v=1634124389",
-      description: "Bold and masculine",
-      price: 100.00,
+      name: "Brit Rhythm",
+      imageUrl: "https://luxuryperfume.com/cdn/shop/products/13734_1024x1024.jpg?v=1635466917",
+      description: "Thrill and energy ",
+      price: 50.00,
     ),
   ];
 
   final List<Perfume> userCart = [];
 
-  // Getter for perfume list
+  
   List<Perfume> getPerfumeList() {
     return allPerfumes;
   }
 
-  // Getter for user cart
+ 
   List<Perfume> getUserCart() {
     return userCart;
   }
 
-  // Add to cart
+  
   void addToCart(Perfume perfume) {
     userCart.add(perfume);
   }
 
-  // Remove from cart
+ 
   void removeFromCart(Perfume perfume) {
     userCart.remove(perfume);
   }

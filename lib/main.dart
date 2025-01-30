@@ -3,6 +3,7 @@ import 'package:perfume_app/pages/Home.dart';
 import 'package:perfume_app/pages/cartPage.dart';
 import 'package:perfume_app/pages/contact.dart';
 import 'package:perfume_app/pages/login.dart';
+import 'package:perfume_app/pages/productdetails.dart';
 import 'package:perfume_app/pages/products.dart';
 import 'package:perfume_app/pages/wishlist.dart';
 
@@ -13,13 +14,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
        theme: ThemeData(
+        fontFamily: 'Roboto',
         brightness: Brightness.light,
         primarySwatch: Colors.teal,
         scaffoldBackgroundColor: Colors.teal[50],
@@ -27,12 +29,12 @@ class MyApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
         ),
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.black), // Default text color
-          bodyMedium: TextStyle(color: Colors.black), // Secondary text
+          bodyLarge: TextStyle(color: Colors.black), 
+          bodyMedium: TextStyle(color: Colors.black), 
         ),
       ),
 
-      // Define dark theme
+   
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.teal,
@@ -41,12 +43,12 @@ class MyApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
         ),
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.black), // Default text color
-          bodyMedium: TextStyle(color: Colors.black), // Secondary text
+          bodyLarge: TextStyle(color: Colors.black), 
+          bodyMedium: TextStyle(color: Colors.black), 
         ),
       ),
 
-      // Automatically respond to system settings
+      
       themeMode: ThemeMode.system,
       
       home: Home(),
@@ -57,6 +59,7 @@ class MyApp extends StatelessWidget {
         '/cart': (context) => const CartPage(),
         '/login': (context) => Login(),
         '/contact': (context) => ContactPage(),
+        '/productDetails': (context) => Productdetails(),
       },
     );
   }

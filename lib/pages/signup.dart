@@ -36,7 +36,7 @@ class _SignupState extends State<Signup> {
               ),
               SizedBox(height: 15),
               TextField(
-                obscureText: true, // Hides password input
+                obscureText: true, 
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: "Enter your password",
@@ -45,12 +45,14 @@ class _SignupState extends State<Signup> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Signup logic here
+                 
                 },
                 child: Text("Sign Up"),
               ),
               SizedBox(height: 15),
-              Text("Already have an account?"),
+              Text("Already have an account?",style: TextStyle( color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,),),
               SizedBox(height: 8),
               TextButton(
                 onPressed: () {

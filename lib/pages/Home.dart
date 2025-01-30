@@ -16,8 +16,6 @@ class _HomeState extends State<Home> {
       
       appBar: AppBar(
         
-        // title: const Text('Essentia Luxe',style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
-        // centerTitle: true,
         
       ),
 drawer: Drawer(
@@ -31,7 +29,11 @@ drawer: Drawer(
     style: TextStyle(
       fontSize: 36,
       fontStyle: FontStyle.italic,
-      fontWeight: FontWeight.bold, // Black text in light mode
+      fontWeight: FontWeight.bold,
+       color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,
+       
     ),
   ),
 ),
@@ -112,64 +114,69 @@ drawer: Drawer(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Title
-            const Text(
-              "E s s e n t i a                  L u x e",
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 6), // Reduced spacing
+        Text(
+          "E s s e n t i a                  L u x e",
+          style: TextStyle(
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white 
+                : Colors.black, 
+          ),
+          textAlign: TextAlign.center,
+        ),
+            const SizedBox(height: 6), 
 
-            // Subtitle
-            const Text(
+            
+            Text(
               "Capturing the essence of luxury",
-              style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 108, 108, 108)),
+              style: TextStyle(fontSize: 16,  color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 12), // Reduced spacing
+            const SizedBox(height: 12), 
 
-            // Large Centered Image
+            
             Expanded(
               flex: 3,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20), // ✅ Rounded corners
+                borderRadius: BorderRadius.circular(20), 
                 child: Image.network(
                   "https://img.freepik.com/premium-photo/mockup-black-fragrance-perfume-bottle-mockup-dark-coals-background-top-view-horizontal_158023-2045.jpg?w=1060",
                   fit: BoxFit.cover,
-                  width: double.infinity, // Full width
-                  height: 200, // Reduced height
+                  width: double.infinity, 
+                  height: 200, 
                 ),
               ),
             ),
 
-            const SizedBox(height: 20), // Reduced space below the image
+            const SizedBox(height: 20), 
 
-            // Shop Now Button
+          
             Align(
   alignment: Alignment.center,
   child: Container(
-    width: double.infinity, // Stretch button horizontally
+    width: double.infinity, 
     padding: const EdgeInsets.symmetric(horizontal: 24),
     child: ElevatedButton(
       onPressed: () {
-        Navigator.of(context).push(FadePageRoute(page: Products())); // ✅ Fade transition
+        Navigator.of(context).push(FadePageRoute(page: Products())); 
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.grey[850], // ✅ Black background
+        backgroundColor: Colors.grey[850], 
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20), // ✅ Rounded corners
+          borderRadius: BorderRadius.circular(20), 
         ),
-        padding: const EdgeInsets.symmetric(vertical: 16), // Adjust height
+        padding: const EdgeInsets.symmetric(vertical: 16), 
       ),
       child: const Text(
         "Shop Now",
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Colors.white, // White text
+          color: Colors.white, 
         ),
       ),
     ),

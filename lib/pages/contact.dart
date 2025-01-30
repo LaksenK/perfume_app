@@ -13,38 +13,45 @@ class ContactPage extends StatelessWidget {
           
         )
       ),
-      // Light teal background
+     
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // "Hello" Header
+              
               Text(
                 "Hello.",
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                   color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,
                 ),
               ),
               const SizedBox(height: 16),
 
-              // Contact Info
+              
               Text(
                 "No.723/F\nRagama, \nGampaha",
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+                style: TextStyle(fontSize: 16,  color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,),
+                
               ),
               const SizedBox(height: 8),
               Text(
                 "(+94) 237-258-233\n\n"
                 "essentialuxe@gmail.com\n",
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+                style: TextStyle(fontSize: 16,  color: Theme.of(context).brightness == Brightness.dark
+        ? Colors.white 
+        : Colors.black,),
               ),
               const SizedBox(height: 32),
 
-              // Name Input Field
+             
               TextField(
                 decoration: InputDecoration(
                   labelText: "Name",
@@ -56,7 +63,7 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Phone Input Field
+              
               TextField(
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
@@ -69,7 +76,7 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Email Input Field
+          
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -82,7 +89,6 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Notes Input Field
               TextField(
                 maxLines: 4,
                 decoration: InputDecoration(
@@ -95,12 +101,12 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              // Submit Button
+             
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Handle form submission here
+                
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey[800],

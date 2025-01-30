@@ -10,11 +10,11 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  final Cart cart = Cart(); // ✅ Use singleton cart
+  final Cart cart = Cart(); 
 
   @override
   Widget build(BuildContext context) {
-    List<Perfume> cartItems = cart.getUserCart(); // ✅ Fetch from shared cart
+    List<Perfume> cartItems = cart.getUserCart(); 
 
     return Scaffold(
       
